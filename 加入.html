@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form align="center" action="四手先锋官网.html" method="get">
+
+<p>用户：<input type="text" value="请输入您的账号"/></p>
+<p>密码：<input type="password"/></p>
+<p>性别：<input type="radio" name="sex"/>男
+        <input type="radio" name="sex"/>女
+        <input type="radio" name="sex"/>机器人
+</p>
+<p>
+    爱好：
+<input type="checkbox" name="hobby" value="打小黑子">打小黑子
+<input type="checkbox" name="hobby" value="踢足球">踢足球
+<input type="checkbox" name="hobby" value="游泳">游泳
+<input type="checkbox" name="hobby" value="爬珠穆朗玛峰">爬珠穆朗玛峰
+</p>
+
+<p>
+城市：
+     <select name="city">
+        <option>--请选择城市--</option>
+        <option>永恒城市</option>
+        <option>战争城市</option>
+        <option>只因城市</option>
+     </select>
+</p>
+
+    <p>  <input type="submit" value="提交"/>
+         <input type="reset" value="重置"/>
+    </p>
+
+<p>
+    备注：我们不收集信息，写出来只是你自己看而已</p>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form align="center" id="classForm" onsubmit="return false;">
+    <div class="form-group" style="display:flex;">
+        <label  class="control-label">请输入班级信息：&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        </div>
+
+        <div class="form-group" style="display: flex;">
+
+            <input type="hidden" id="_id" name="_id" 
+                   th:value="${cla!=null and cla._id!=null}?${cla._id}:''">
+            
+            
+            <input type="text" class="form-control col-sm-6" id="creator" name="creator"
+                   placeholder="*请输入创建人"
+                   th:value="${cla!=null and cla.creator!=null}?${cla.creator}:''"
+                   required="true">
+
+
+            <input type="text" class="form-control col-sm-6" id="className" name="className"
+                   placeholder="*请输入班级名称"
+                   th:value="${cla!=null and cla.className!=null}?${cla.className}:''"
+                   required="true">&nbsp;&nbsp;
+        
+        </div>
+
+
+        <div class="form-group" style="display: flex;">
+            <input type="text" class="form-control col-sm-6" id="teacherName" name="teacherName"
+                   placeholder="*请输入老师名称"
+                   th:value="${cla!=null and cla.teacherName!=null}?${cla.teacherName}:''"
+                   required="true">
+
+        </div>
+
+        <div class="form-group">
+
+            &nbsp;<button class="bth bth-info float-right" style="margin-left: Spx;"
+                          id="saveClassButton">保存班级信息
+        </button>&nbsp;
+            &nbsp;<button class="bth bth-secondary float-right" style="margin-left: Spx;"
+                          id="cancelClassButton">返回班级列表
+        </button>&nbsp;
+        </div>
+    </form>
+    
+    
+    <script>
+        $('#saveClassButton').click(function(){
+        alert("测试班级添加按钮");
+        var data = new FormData(document.getElementByid("classForm"));
+    
+        $.ajax({
+            url: '/class/saveClass',
+            type:'post',
+            data:data,
+            processData:false,
+            contentType:false,
+            datatype:'josn',
+            success:function(result){
+                if(r.resultCode==200){
+                    swal({
+                        title:'查询成功',
+                        type:'success',
+                        showCancelButton:false,
+                        confirmButtonColor:'#1baeae',
+                        confirmButtonText:'返回商品列表',
+                        confirmButtonClass:'btn btn-success',
+                        buttonStyling:false
+                    }).then(function(){
+                        window.location.href = "/user/query_page";
+                    })
+                }
+            },
+            error:function(result){
+                swal("操作失败"+result.message,{
+                    icon:"error",
+                });
+            }
+        });
+    });
+    </script>
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <body style="background-color: azure;">
+
+    <table>
+
+        <tr>
+        <td><img src="鸡你太美.gif" width="300" height="300" /></td>
+        </tr>
+        
+        <tr>
+        <td align="center">鸡你太美</td>
+        </tr>
+        
+        </table>
+
+        
+
+
+</body>
+</html>
+
